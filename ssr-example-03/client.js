@@ -18,11 +18,9 @@ export async function render(document, { dinos }) {
 }
 
 export function addEventListeners() {
-  console.log("addEventListeners");
   document.querySelector("button").addEventListener("click", async () => {
     const item = document.querySelector("input").value;
     window.dinos.push(item);
-    console.log("add item");
     const response = await fetch("/add", {
       method: "POST",
       headers: {
