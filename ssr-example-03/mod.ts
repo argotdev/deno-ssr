@@ -10,7 +10,6 @@ const router = new Router();
 
 router.get("/client.js", async (context) => {
   const path = resolve("./client.js");
-  console.log(Deno.cwd());
   await context.send({
     root: Deno.cwd(), // Deno.cwd() is the current working directory
     index: "client.js",
