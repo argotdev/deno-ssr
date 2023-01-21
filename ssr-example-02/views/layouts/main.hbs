@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinosaurs</title>
+  </head>
+  <body>
+    <div>
+      <!--content-->
+      {{{body}}}
+    </div>
+    <input />
+    <button>Add</button>
+  </body>
+  <script>
+    document.querySelector("button").addEventListener("click", async () => {
+    const item = document.querySelector("input").value; console.log(item); const
+    response = await fetch("/add", { method: "POST", headers: {
+    "Content-Type":"application/json", }, body: JSON.stringify({ item }), });
+    console.log(response); const status = await response.status;
+    console.log(status); if (status === 200) { const li =
+    document.createElement("li"); li.innerText = item;
+    document.querySelector("ul").appendChild(li);
+    document.querySelector("input").value = ""; } });
+  </script>
+</html>
